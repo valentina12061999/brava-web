@@ -406,9 +406,9 @@ form.f[hidden],.thanks[hidden]{display:none}
       <div class="thanks" id="thanks" hidden="" tabindex="-1">
         <span class="t-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
         <h3 data-h="tyTitle">Thanks for getting in touch!</h3>
-        <p data-t="tyText">Your message is in. Pick a time that suits you and book your free&nbsp;30‑minute&nbsp;call straight away. I’ll also send you the link by email so you have it handy.</p>
-        <a class="btn btn-solid t-btn" id="calLink" href="#" target="_blank" rel="noopener"><span data-t="tyBtn">Book your call</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
-        <p class="t-small" data-t="tySmall">Can’t see my email? Check your spam or promotions folder, just in case.</p>
+        <p data-t="tyText">Your details are in. Taking you to my calendar so you can pick a time for your free&nbsp;30‑minute&nbsp;call…</p>
+        <a class="btn btn-solid t-btn" id="calLink" href="https://calendly.com/valentinavinas/30min"><span data-t="tyBtn">Book your call</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+        <p class="t-small" data-t="tySmall">If the calendar doesn’t open, use the button above.</p>
       </div>
     </div>
   </section>
@@ -436,6 +436,7 @@ const toolItems=[
  ['Smile.io','Yotpo','Okendo','LoyaltyLion'],
  ['Google Analytics 4','Google Tag Manager','Looker Studio'],
  ['Hotjar','Microsoft Clarity','Typeform','KnoCommerce']];
+const CAL_URL='https://calendly.com/valentinavinas/30min';
 const C={
 en:{nav:['Services','Ways to work','About'],call:'Book a free call',see:'Explore services',
 heroLabel:'Retention, lifecycle & CRM marketing · Sydney-based · Working worldwide',
@@ -474,7 +475,7 @@ contactLabel:'Start a conversation',contactTitle:'Let’s talk about your <em>gr
 contactText:'Not sure what’s holding your retention back? Tell me a little about your brand, where you’re at and what you’d like to improve. We’ll look at the bigger picture together and see if Brava is the right fit.',
 contactNote:'Free 30-minute call. No pitch, no pressure: just a conversation about your customers and where there’s room to grow.',
 fName:'Name',fEmail:'Email',fWeb:'Store website',fSpend:'Monthly online revenue',fHelp:'What would you like help with?',fMore:'Tell me a little more about your brand',fSubmit:'Send & book my call',fNext:'Next, you’ll choose a time that suits you.',sending:'Sending…',
-ok:'Thank you for reaching out. Your message is in, and I’ll be in touch soon.',tyTitle:'Thanks for getting in touch!',tyText:'Your message is in. Pick a time that suits you and book your free 30‑minute call straight away. I’ll also send you the link by email so you have it handy.',tySmall:'Can’t see my email? Check your spam or promotions folder, just in case.',tyBtn:'Book your call',err:'The form isn’t connected yet. It will start working once the site is live.',
+ok:'Thank you for reaching out. Your message is in, and I’ll be in touch soon.',tyTitle:'Thanks for getting in touch!',tyText:'Your details are in. Taking you to my calendar so you can pick a time for your free 30‑minute call…',tySmall:'If the calendar doesn’t open, use the button above.',tyBtn:'Book your call',err:'The form isn’t connected yet. It will start working once the site is live.',
 options:['Under A$20k','A$20k – A$100k','Over A$100k','Prefer not to say'],
 helpOptions:['Increasing repeat purchases','Improving email & SMS','Building a lifecycle strategy','Improving conversion','Not sure yet'],
 footer:'Ecommerce retention, lifecycle & CRM marketing for independent beauty, wellness & fashion brands.',footPlace:'Sydney-based · Working worldwide',footLangs:'English · Spanish · Catalan',
@@ -516,7 +517,7 @@ contactLabel:'Hablemos',contactTitle:'Hablemos de tu <em>crecimiento.</em>',
 contactText:'¿No tienes claro qué frena tu retención? Cuéntame un poco sobre tu marca, en qué punto estás y qué te gustaría mejorar. Veremos el panorama completo y si Brava encaja contigo.',
 contactNote:'Llamada gratuita de 30 minutos. Sin presión y sin discursos de venta: solo una conversación sobre tus clientes y dónde hay margen para crecer.',
 fName:'Nombre',fEmail:'Email',fWeb:'Web de tu tienda',fSpend:'Facturación online mensual',fHelp:'¿En qué te gustaría que te ayudara?',fMore:'Cuéntame un poco más sobre tu marca',fSubmit:'Enviar y reservar llamada',fNext:'A continuación, elegirás el momento que mejor te venga.',sending:'Enviando…',
-ok:'Gracias por escribirme. He recibido tu mensaje y te responderé pronto.',tyTitle:'¡Gracias por escribirme!',tyText:'He recibido tu mensaje. Elige el momento que mejor te venga y reserva ya tu llamada gratuita de 30 minutos. También te enviaré el enlace por email para que lo tengas a mano.',tySmall:'¿No ves mi email? Revisa la carpeta de spam o promociones, por si acaso.',tyBtn:'Reservar mi llamada',err:'El formulario aún no está conectado. Funcionará cuando la web esté publicada.',
+ok:'Gracias por escribirme. He recibido tu mensaje y te responderé pronto.',tyTitle:'¡Gracias por escribirme!',tyText:'He recibido tus datos. Te llevo a mi calendario para que elijas cuándo hacemos tu llamada gratuita de 30 minutos…',tySmall:'Si el calendario no se abre, usa el botón de arriba.',tyBtn:'Reservar mi llamada',err:'El formulario aún no está conectado. Funcionará cuando la web esté publicada.',
 options:['Menos de 12.000 €','12.000 – 60.000 €','Más de 60.000 €','Prefiero no decirlo'],
 helpOptions:['Aumentar las compras recurrentes','Mejorar mi email y SMS','Crear una estrategia de lifecycle','Mejorar la conversión','Aún no lo sé'],
 footer:'Retención, lifecycle y CRM marketing ecommerce para marcas independientes de belleza, bienestar y moda.',footPlace:'Con base en Sídney · Trabajo en todo el mundo',footLangs:'Inglés · Español · Catalán',
@@ -562,7 +563,11 @@ $('form').addEventListener('submit',async e=>{
   try{
     const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()});
     if(!r.ok)throw new Error();
+    const fd=new FormData(f);const cal=new URL(CAL_URL);
+    cal.searchParams.set('name',String(fd.get('name')||''));cal.searchParams.set('email',String(fd.get('email')||''));
+    $('calLink').href=cal.toString();
     f.reset();$('status').textContent='';f.hidden=true;const ty=$('thanks');ty.hidden=false;ty.focus();
+    setTimeout(()=>{window.location.assign(cal.toString());},1800);
   }catch(err){$('status').textContent=t.err;}
 });
 (function(){
