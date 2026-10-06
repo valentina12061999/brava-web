@@ -567,7 +567,7 @@ $('form').addEventListener('submit',async e=>{
     cal.searchParams.set('name',String(fd.get('name')||''));cal.searchParams.set('email',String(fd.get('email')||''));
     $('calLink').href=cal.toString();
     f.reset();$('status').textContent='';f.hidden=true;const ty=$('thanks');ty.hidden=false;ty.focus();
-    setTimeout(()=>{window.location.assign(cal.toString());},1800);
+    setTimeout(()=>{window.location.assign(cal.toString());},4000);
   }catch(err){$('status').textContent=t.err;}
 });
 (function(){
