@@ -275,6 +275,8 @@ form.f[hidden],.thanks[hidden]{display:none}
 .thanks p{color:var(--muted);line-height:1.7;margin:0;max-width:52ch}
 .thanks .t-small{margin-top:18px;font-size:14px}
 .thanks .t-btn{margin-top:24px}
+
+.f-next{margin:12px 0 0;font-size:13px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -396,7 +398,8 @@ form.f[hidden],.thanks[hidden]{display:none}
         <div class="full"><label for="helpWith"><span data-t="fHelp">What would you like help with?</span> *</label><select id="helpWith" name="help" required=""><option value="" disabled="" selected="">—</option><option>Increasing repeat purchases</option><option>Improving email &amp; SMS</option><option>Building a lifecycle strategy</option><option>Improving conversion</option><option>Not sure yet</option></select></div>
         <div class="full"><label for="message"><span data-t="fMore">Tell me a little more about your brand</span></label><textarea id="message" name="message" rows="4"></textarea></div>
         <div class="full">
-          <button class="btn btn-solid" type="submit"><span data-t="fSubmit">Book my free call</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+          <button class="btn btn-solid" type="submit"><span data-t="fSubmit">Send &amp; book my call</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+          <p class="f-next" data-t="fNext">Next, you’ll choose a time that suits you.</p>
           <p class="status" id="status" role="status" aria-live="polite"></p>
         </div>
       </form>
@@ -470,7 +473,7 @@ nlBtn:'Read & subscribe on Substack',bubbleTitle:'Read my Substack',bubbleText:'
 contactLabel:'Start a conversation',contactTitle:'Let’s talk about your <em>growth.</em>',
 contactText:'Not sure what’s holding your retention back? Tell me a little about your brand, where you’re at and what you’d like to improve. We’ll look at the bigger picture together and see if Brava is the right fit.',
 contactNote:'Free 30-minute call. No pitch, no pressure: just a conversation about your customers and where there’s room to grow.',
-fName:'Name',fEmail:'Email',fWeb:'Store website',fSpend:'Monthly online revenue',fHelp:'What would you like help with?',fMore:'Tell me a little more about your brand',fSubmit:'Book my free call',sending:'Sending…',
+fName:'Name',fEmail:'Email',fWeb:'Store website',fSpend:'Monthly online revenue',fHelp:'What would you like help with?',fMore:'Tell me a little more about your brand',fSubmit:'Send & book my call',fNext:'Next, you’ll choose a time that suits you.',sending:'Sending…',
 ok:'Thank you for reaching out. Your message is in, and I’ll be in touch soon.',tyTitle:'Thanks for getting in touch!',tyText:'Your message is in. Pick a time that suits you and book your free 30‑minute call straight away. I’ll also send you the link by email so you have it handy.',tySmall:'Can’t see my email? Check your spam or promotions folder, just in case.',tyBtn:'Book your call',err:'The form isn’t connected yet. It will start working once the site is live.',
 options:['Under A$20k','A$20k – A$100k','Over A$100k','Prefer not to say'],
 helpOptions:['Increasing repeat purchases','Improving email & SMS','Building a lifecycle strategy','Improving conversion','Not sure yet'],
@@ -512,7 +515,7 @@ nlBtn:'Leer y suscribirme en Substack',bubbleTitle:'Lee mi Substack',bubbleText:
 contactLabel:'Hablemos',contactTitle:'Hablemos de tu <em>crecimiento.</em>',
 contactText:'¿No tienes claro qué frena tu retención? Cuéntame un poco sobre tu marca, en qué punto estás y qué te gustaría mejorar. Veremos el panorama completo y si Brava encaja contigo.',
 contactNote:'Llamada gratuita de 30 minutos. Sin presión y sin discursos de venta: solo una conversación sobre tus clientes y dónde hay margen para crecer.',
-fName:'Nombre',fEmail:'Email',fWeb:'Web de tu tienda',fSpend:'Facturación online mensual',fHelp:'¿En qué te gustaría que te ayudara?',fMore:'Cuéntame un poco más sobre tu marca',fSubmit:'Reservar mi llamada gratis',sending:'Enviando…',
+fName:'Nombre',fEmail:'Email',fWeb:'Web de tu tienda',fSpend:'Facturación online mensual',fHelp:'¿En qué te gustaría que te ayudara?',fMore:'Cuéntame un poco más sobre tu marca',fSubmit:'Enviar y reservar llamada',fNext:'A continuación, elegirás el momento que mejor te venga.',sending:'Enviando…',
 ok:'Gracias por escribirme. He recibido tu mensaje y te responderé pronto.',tyTitle:'¡Gracias por escribirme!',tyText:'He recibido tu mensaje. Elige el momento que mejor te venga y reserva ya tu llamada gratuita de 30 minutos. También te enviaré el enlace por email para que lo tengas a mano.',tySmall:'¿No ves mi email? Revisa la carpeta de spam o promociones, por si acaso.',tyBtn:'Reservar mi llamada',err:'El formulario aún no está conectado. Funcionará cuando la web esté publicada.',
 options:['Menos de 12.000 €','12.000 – 60.000 €','Más de 60.000 €','Prefiero no decirlo'],
 helpOptions:['Aumentar las compras recurrentes','Mejorar mi email y SMS','Crear una estrategia de lifecycle','Mejorar la conversión','Aún no lo sé'],
