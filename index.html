@@ -323,6 +323,13 @@ form.f[hidden],.thanks[hidden]{display:none}
     </div>
   </section>
 
+  <section class="block" id="toolkit">
+    <div class="wrap">
+      <div class="head"><div><p class="label" data-t="toolsLabel"></p><h2 data-h="toolsTitle"></h2></div><p data-h="toolsIntro"></p></div>
+      <div class="tools" id="tools"></div>
+    </div>
+  </section>
+
   <section class="block mist about" id="about">
     <div class="wrap">
       <p class="label" data-t="aboutLabel"></p>
@@ -514,6 +521,7 @@ function render(){
   $('flow').innerHTML=t.flow.map(x=>`<span>${esc(x)}</span>`).join('<i>→</i>');
   $('steps').innerHTML=t.steps.map(([h,sub,p],i)=>`<div class="row"><span class="n" style="font-size:40px">0${i+1}</span><div><h3><em>${esc(h)}</em></h3><p class="st">${esc(sub)}</p><p class="sub">${esc(p)}</p></div></div>`).join('');
   $('pkgs').innerHTML=t.packages.map(([h,m,tag,d,lt,items,time,cta],i)=>`<article class="pkg"><div class="top"><span>${esc(m)}</span><span class="num">0${i+1}</span></div><h3>${esc(h)}</h3><p class="tag">${esc(tag)}</p><p>${esc(d)}</p><p class="lt">${esc(lt)}</p><ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="time">${esc(time)}</p><a class="cta" href="#contact">${esc(cta)} ${arrow}</a></article>`).join('');
+  $('tools').innerHTML=t.toolGroups.map((g,i)=>`<div><h3>${esc(g)}</h3><div class="chips">${toolItems[i].map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>`).join('');
   $('aboutCols').innerHTML=t.about.map(p=>`<p>${esc(p)}</p>`).join('');
   $('why').innerHTML=t.why.map(([b,x])=>`<li><strong>${esc(b)}</strong> ${esc(x)}</li>`).join('');
   $('spend').innerHTML=`<option value="" disabled selected>—</option>`+t.options.map(o=>`<option>${esc(o)}</option>`).join('');
